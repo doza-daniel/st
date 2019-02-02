@@ -90,6 +90,39 @@ char *termname = "st-256color";
  */
 unsigned int tabspaces = 8;
 
+/* bg opacity */
+unsigned int alpha = 0xf1;
+
+/* mapping for opacity */
+typedef struct {
+	int level;
+	int hexval;
+} Opacity;
+
+static Opacity opacity[] = {
+	{100, 0xFF},
+	{95,  0xF2},
+	{90,  0xE6},
+	{85,  0xD9},
+	{80,  0xCC},
+	{75,  0xBF},
+	{70,  0xB3},
+	{65,  0xA6},
+	{60,  0x99},
+	{55,  0x8C},
+	{50,  0x80},
+	{45,  0x73},
+	{40,  0x66},
+	{35,  0x59},
+	{30,  0x4D},
+	{25,  0x40},
+	{20,  0x33},
+	{15,  0x26},
+	{10,  0x1A},
+	{5,   0x0D},
+	{0,   0x00},
+};
+
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
@@ -193,6 +226,7 @@ ResourcePref resources[] = {
 		{ "borderpx",     INTEGER, &borderpx },
 		{ "cwscale",      FLOAT,   &cwscale },
 		{ "chscale",      FLOAT,   &chscale },
+        { "alpha",        INTEGER, &alpha },
 };
 
 /*
